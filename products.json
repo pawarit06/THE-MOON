@@ -1,0 +1,52 @@
+[
+  {
+    "id": "fullmoon-espresso-soda",
+    "name": "Full Moon Espresso Soda",
+    "mood": "fullmoon",
+    "type": "coffee",
+    "size": "16 oz",
+    "price": 110,
+    "image": "images/fullmoon.jpg",
+    "description": "เอสเปรสโซเข้มข้นผสมผสานส้มและโซดาซ่า ให้ความรู้สึกสดชื่น ตื่นตัว สว่างไสวดุจคืนพระจันทร์เต็มดวง"
+  },
+  {
+    "id": "half-moon-vanilla-oat-latte",
+    "name": "Half Moon Vanilla Oat Latte",
+    "mood": "halfmoon",
+    "type": "coffee",
+    "size": "16 oz",
+    "price": 120,
+    "image": "images/halfmoon.jpg",
+    "description": "กาแฟลาเต้นมโอ๊ตหอมกลิ่นวนิลาแท้ ผ่อนคลาย นุ่มนวล สมดุล ละมุนกลมกล่อม"
+  },
+  {
+    "id": "new-moon-dark-charcoal-cocoa",
+    "name": "New Moon Dark Charcoal Cocoa",
+    "mood": "newmoon",
+    "type": "non-coffee",
+    "size": "16 oz",
+    "price": 115,
+    "image": "images/newmoon.jpg",
+    "description": "โกโก้พรีเมียมเข้มข้นผสมผงชาโคล ลึกลับ เข้มข้น นวัตกรรมแห่งรสชาติยามค่ำคืน"
+  },
+  {
+    "id": "eclipse-berry-cold-brew",
+    "name": "Eclipse Berry Cold Brew",
+    "mood": "eclipse",
+    "type": "coffee",
+    "size": "16 oz",
+    "price": 130,
+    "image": "images/eclipse.jpg",
+    "description": "กาแฟสกัดเย็นผสมไซรัปเบอร์รี่รวม โรแมนติก ซับซ้อน น่าค้นหา ราวกับสุริยุปราคา"
+  },
+  {
+    "id": "lunar-gold-cream-matcha",
+    "name": "Lunar Gold Cream Matcha",
+    "mood": "lunargold",
+    "type": "non-coffee",
+    "size": "16 oz",
+    "price": 125,
+    "image": "images/lunargold.jpg",
+    "description": "มัทฉะเกรดพิธีการท็อปด้วยครีมนวลสีทอง อบอุ่น เปล่งประกาย ละมุนลิ้น"
+  }
+]
