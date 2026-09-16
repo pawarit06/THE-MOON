@@ -1,6 +1,40 @@
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyQ5sgpHobtzwslsvSF3nOOkIu434L9Km7ghZd6B5nTF3GyaYsaHQDXPP9S-xbB-msfSg/exec';
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRdMxdZYZrksdU6ycO6XtxvUhGuh8K2ksPehsN9yZLYqjqPIKzNjPqeNiV_Nqb3OxHrVnAMMCOqM-Bp/pub?output=csv';
 
+// ตัวอย่างการแก้ใน script.js หรือ products.json
+const productsData = [
+  {
+    id: 1,
+    name: "Full Moon Espresso Soda",
+    image: "images/fullmoon.jpg",  // <-- เติม images/ ด้านหน้า
+    // ...
+  },
+  {
+    id: 2,
+    name: "Half Moon Vanilla Oat Latte",
+    image: "images/halfmoon.jpg",  // <-- เติม images/ ด้านหน้า
+    // ...
+  },
+  {
+    id: 3,
+    name: "New Moon Dark Charcoal Cocoa",
+    image: "images/newmoon.jpg",  // <-- เติม images/ ด้านหน้า
+    // ...
+  },
+  {
+    id: 4,
+    name: "Eclipse Berry Cold Brew",
+    image: "images/eclipse.jpg",  // <-- เติม images/ ด้านหน้า
+    // ...
+  },
+  {
+    id: 5,
+    name: "Lunar Gold Cream Matcha",
+    image: "images/lunargold.jpg", // <-- เติม images/ ด้านหน้า
+    // ...
+  }
+];
+
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
 
