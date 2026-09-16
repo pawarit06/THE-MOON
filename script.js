@@ -1,5 +1,6 @@
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyQ5sgpHobtzwslsvSF3nOOkIu434L9Km7ghZd6B5nTF3GyaYsaHQDXPP9S-xbB-msfSg/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzG5asolur2IRgG0tXTOjYV_Garc9rhUPSVWFKshfjQw_ENiuvTcjf5tyb1iMh2iBo0iQ/exec';
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRdMxdZYZrksdU6ycO6XtxvUhGuh8K2ksPehsN9yZLYqjqPIKzNjPqeNiV_Nqb3OxHrVnAMMCOqM-Bp/pub?output=csv';
+
 
 const productsData = [
   {
