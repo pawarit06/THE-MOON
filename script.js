@@ -5,7 +5,7 @@ const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRdMxdZYZrksdU6
 // 1. กำหนดค่า Telegram Bot Token และ Chat ID ของคุณที่นี่
 // -------------------------------------------------------------
 const TELEGRAM_BOT_TOKEN = '8660094603:AAHZNWlVTi0L_yac0GQR3WU-g79Jv0mvG1I';
-const TELEGRAM_CHAT_ID = '@+i3eEcFPNiy0wN2Fl';
+const TELEGRAM_CHAT_ID = '-1004396209876';
 
 const productsData = [
   {
