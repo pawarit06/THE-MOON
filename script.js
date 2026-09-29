@@ -1,6 +1,11 @@
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzG5asolur2IRgG0tXTOjYV_Garc9rhUPSVWFKshfjQw_ENiuvTcjf5tyb1iMh2iBo0iQ/exec';
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRdMxdZYZrksdU6ycO6XtxvUhGuh8K2ksPehsN9yZLYqjqPIKzNjPqeNiV_Nqb3OxHrVnAMMCOqM-Bp/pub?output=csv';
 
+// -------------------------------------------------------------
+// 1. กำหนดค่า Telegram Bot Token และ Chat ID ของคุณที่นี่
+// -------------------------------------------------------------
+const TELEGRAM_BOT_TOKEN = '8660094603:AAHZNWlVTi0L_yac0GQR3WU-g79Jv0mvG1I';
+const TELEGRAM_CHAT_ID = '@+i3eEcFPNiy0wN2Fl';
 
 const productsData = [
   {
@@ -94,7 +99,6 @@ function initProductPage() {
     .then(res => res.json())
     .then(products => setupFilter(products))
     .catch(() => {
-      // ดึงข้อมูลสำรองทันทีเมื่อเปิดไฟล์ในเครื่อง
       setupFilter(productsData);
     });
 }
@@ -147,17 +151,43 @@ function initOrderPage() {
         note: document.getElementById('note').value
       };
 
-      fetch(APPS_SCRIPT_URL, {
+      // รูปแบบข้อความที่จะส่งเข้า Telegram
+      const telegramText = 
+`🛍️ <b>รายการสั่งซื้อใหม่!</b>
+--------------------------------
+👤 <b>ชื่อลูกค้า:</b> ${payload.customerName}
+📞 <b>ติดต่อ:</b> ${payload.contact}
+☕ <b>สินค้า:</b> ${payload.items}
+💰 <b>ราคารวม:</b> ${payload.total} บาท
+📝 <b>หมายเหตุ:</b> ${payload.note || '-'}
+--------------------------------`;
+
+      // 1. Request สำหรับส่งข้อมูลไปที่ Google Apps Script
+      const reqAppsScript = fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify(payload)
-      })
-      .then(() => {
-        window.location.href = 'thankyou.html';
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาลองใหม่อีกครั้ง');
       });
+
+      // 2. Request สำหรับส่งข้อความไปที่ Telegram
+      const reqTelegram = fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: telegramText,
+          parse_mode: 'HTML'
+        })
+      });
+
+      // ส่งทั้งสองอย่างพร้อมกันเมื่อกดปุ่มยื่นคำสั่งซื้อ
+      Promise.all([reqAppsScript, reqTelegram])
+        .then(() => {
+          window.location.href = 'thankyou.html';
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาลองใหม่อีกครั้ง');
+        });
     });
   }
 }
